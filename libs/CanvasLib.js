@@ -36,7 +36,7 @@ const CanvasLib = {
 
     for (let row = 0; row < 16; row++) {
       for (let col = 0; col < 16; col++) {
-        const rand = Math.floor((Math.random() * 100) % 12);
+        const rand = Math.floor(Math.random() * colors.length);
         a[row][col] = colors[rand];
       }
     }
