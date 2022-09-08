@@ -32,6 +32,16 @@ const CanvasLib = {
       "#B100FE",
       "#FF006E",
     ];
+    const a = CanvasLib.createEmptyCanvas();
+
+    for (let row = 0; row < 16; row++) {
+      for (let col = 0; col < 16; col++) {
+        const rand = Math.floor((Math.random() * 100) % 12);
+        a[row][col] = colors[rand];
+      }
+    }
+
+    return a;
   },
 };
 

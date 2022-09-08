@@ -6,8 +6,6 @@ import Canvas from "../components/Canvas";
 import CanvasLib from "../libs/CanvasLib";
 
 export default function Home() {
-  //selected color from color picker
-  //set black color as default
   const [selColor, setSelColor] = useState("#000000");
 
   //16x16 2D Array that holds color data
@@ -17,12 +15,16 @@ export default function Home() {
   const paint = (xPos, yPos) => {
     //copy from old 2d Array
     const newPixels = CanvasLib.copyCanvas(pixels);
-    //your code here
+    newPixels[xPos][yPos] = selColor;
+    setPixels(CanvasLib.copyCanvas(newPixels));
   };
 
   const clear = () => {
-    //your code here
-    //Hint : use CanvasLib.createEmptyCanvas()
+    setPixels(CanvasLib.createEmptyCanvas());
+  };
+
+  const random = () => {
+    setPixels(CanvasLib.createRandomCanvas);
   };
 
   return (
@@ -36,7 +38,9 @@ export default function Home() {
           <button className="btn btn-dark" onClick={clear}>
             Clear
           </button>
-          <button className="btn btn-dark">Random Color</button>
+          <button className="btn btn-dark" onClick={random}>
+            Random Color
+          </button>
         </div>
       </PainterContext.Provider>
     </div>
